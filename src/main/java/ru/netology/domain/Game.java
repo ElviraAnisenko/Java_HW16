@@ -1,11 +1,13 @@
 package ru.netology.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Game {
 
-    protected ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
+    HashMap<String, Integer> map = new HashMap<>();
 
 
     public void register(Player player) {
@@ -43,6 +45,23 @@ public class Game {
             result = 0;
         }
         return result;
+    }
+
+    public Integer search(String playerName) {
+        if (searchByName(playerName) == null) {
+            throw new NotRegisteredException("Player " + playerName + " not found");
+        }
+        return searchByName(playerName);
+    }
+
+    public Integer searchByName(String playerName) {
+        for (String key : map.keySet()) {
+            Integer value = map.get(key);
+            if (key.equals(playerName)) {
+                return value;
+            }
+        }
+        return null;
     }
 }
 

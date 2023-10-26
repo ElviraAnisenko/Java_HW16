@@ -88,5 +88,25 @@ public class GameTest {
                 game.round("Olya", "Masha"));
     }
 
+    @Test
+    public void shouldSearchPlayerByNameAndOutputStrength() {
+        Game game = new Game();
+        game.map.put(player1.getName(), player1.getStrength());
+        game.map.put(player2.getName(), player2.getStrength());
+        game.map.put(player3.getName(), player3.getStrength());
+        int expected = 50;
+        int actual = game.search("Sergey");
+        Assertions.assertEquals(expected, actual);
+    }
 
+    @Test
+    public void shouldSearchIfNoPlayerWithSearchName() {
+        Game game = new Game();
+        game.map.put(player1.getName(), player1.getStrength());
+        game.map.put(player2.getName(), player2.getStrength());
+        game.map.put(player3.getName(), player3.getStrength());
+        Assertions.assertThrows(NotRegisteredException.class, () ->
+                game.search("Olya"));
+
+    }
 }

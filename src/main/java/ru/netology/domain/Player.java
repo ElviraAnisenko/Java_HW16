@@ -3,9 +3,9 @@ package ru.netology.domain;
 import java.util.Objects;
 
 public class Player {
-    public int id;
-    public String name;
-    public int strength;
+    private int id;
+    private String name;
+    private int strength;
 
     public Player(int id, String name, int strength) {
         this.id = id;
@@ -21,5 +21,7 @@ public class Player {
         return strength;
     }
 
-
+    public int getId() {
+        return id;
+    }
 }
