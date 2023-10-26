@@ -47,23 +47,16 @@ public class Game {
         return result;
     }
 
-    public Integer search(String playerName) {
-        if (searchByName(playerName) == null) {
+    public int search(String playerName) {
+        Integer result = map.get(playerName);
+        if (result == null) {
             throw new NotRegisteredException("Player " + playerName + " not found");
         }
-        return searchByName(playerName);
+        return result;
     }
 
-    public Integer searchByName(String playerName) {
-        for (String key : map.keySet()) {
-            Integer value = map.get(key);
-            if (key.equals(playerName)) {
-                return value;
-            }
-        }
-        return null;
-    }
 }
+
 
 
 
