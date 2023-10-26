@@ -47,7 +47,7 @@ public class Game {
         return result;
     }
 
-    public int search(String playerName) {
+    public Integer search(String playerName) {
         Integer result = map.get(playerName);
         if (result == null) {
             throw new NotRegisteredException("Player " + playerName + " not found");

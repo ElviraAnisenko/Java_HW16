@@ -94,8 +94,8 @@ public class GameTest {
         game.map.put(player1.getName(), player1.getStrength());
         game.map.put(player2.getName(), player2.getStrength());
         game.map.put(player3.getName(), player3.getStrength());
-        int expected = 50;
-        int actual = game.search("Sergey");
+        Integer expected = 50;
+        Integer actual = game.search("Sergey");
         Assertions.assertEquals(expected, actual);
     }
 
